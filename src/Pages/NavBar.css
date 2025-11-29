@@ -1,0 +1,100 @@
+/* MAIN NAVBAR */
+.sb-navbar {
+  width: 100%;
+  padding: 18px 35px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #f1f1f1;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* LEFT SECTION */
+.sb-left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+/* LOGO */
+.sb-logo {
+  width: 55px;
+}
+
+/* LINKS (MENU, REWARDS, GIFT CARDS) */
+.sb-links {
+  display: flex;
+  gap: 28px;
+}
+
+.sb-links a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  font-size: 15px;
+}
+
+.sb-links a:hover {
+  color: #00754a;
+}
+
+/* RIGHT SECTION */
+.sb-right {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* FIND A STORE */
+.find-store {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.find-store a {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.find-store a:hover {
+  color: #00754a;
+}
+
+/* BUTTON STYLES */
+.sb-signin {
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: 1px solid black;
+  background: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sb-signin:hover {
+  background: #f2f2f2;
+}
+
+.sb-join {
+  padding: 8px 18px;
+  border-radius: 50px;
+  border: none;
+  background: black;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sb-join:hover {
+  opacity: 0.9;
+}
+
+/* LOCATION PIN */
+.pin {
+  font-size: 16px;
+}

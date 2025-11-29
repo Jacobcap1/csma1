@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Homepage from './Pages/Homepage';
+import Menu from './Pages/Menu';
+import Cart from './Pages/Cart';
+import Checkout from './Pages/Checkout';
+//import Customize from './Pages/Customize';
+import Login from './Pages/Login';
+//import Rewards from './Pages/Rewards';
+// import AdminDashboard from './Pages/admin/AdminDashboard';
+// import MenuManager from './Pages/admin/MenuManager';
+// import OrderQueue from './Pages/admin/OrderQueue';
+// import RewardsManager from './Pages/admin/RewardsManager';
+import NavBar from './Pages/NavBar';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Router>
+      <div className="App">
+        <NavBar />
 
-export default App
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/menu" element={<Menu />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          {/* <Route path="/customize" element={<Customize />} /> */}
+          <Route path="/login" element={<Login />} />
+         {/*<Route path="/rewards" element={<Rewards />} />
+          {/* <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/menu" element={<MenuManager />} />
+          <Route path="/admin/orders" element={<OrderQueue />} />
+          <Route path="/admin/rewards" element={<RewardsManager />} /> */}
+        </Routes>
+      </div>
+    </Router>
+ );
+ }
+
+ export default App;
