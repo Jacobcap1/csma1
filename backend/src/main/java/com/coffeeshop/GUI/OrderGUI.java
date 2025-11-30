@@ -21,9 +21,9 @@ public class OrderGUI {
     
     //That will call this function which creates a Drink Object using drinkFactory and passes that drink and the size to OrderController addToCart Method
     
-    public String onAddToCart(String drinkName, char size){
+    public String onAddToCart(String drinkName){
         //System.out.println("Sending a Drink object to OrderController from the OrderGui Class via the addToCartMethod");
-        return oc.addToCart(df.createDrink(drinkName,size));
+        return oc.addToCart(df.createDrink(drinkName));
     }
 
     //Once a cart has been created, the user can hit "order coffee"

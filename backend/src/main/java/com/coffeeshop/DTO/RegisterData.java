@@ -8,7 +8,7 @@ public class RegisterData {
 
     RegisterData(String password, String email) {
         this.email = email;
-        this.password = email;
+        this.password = password;
         // this.fName = fName;
         // this.lName = lName;
     }

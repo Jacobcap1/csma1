@@ -1,23 +1,17 @@
 package com.coffeeshop.Classes;
 
-public class DripCoffee implements Drink{
+public class MediumDripCoffee implements Drink{
     //PULL THESE FROM DATABASE AFTER IMPLEMENTATION
     public static String description;
     public static String name;
     public static double price;
-    public static char size;
+    public static String size;
 
-    public DripCoffee(char size){
+    public MediumDripCoffee(){
    this.description = "Plain ol' Black Coffee";
-   this.name = "Drip Coffee";
-        if(size == 's'){
-            this.price = 4.5;}
-        else if (size == 'm'){
-            this.price = 5.5;}
-        else
-            this.price = 6.5;
-
-   this.size = size;
+   this.name = "Medium Drip Coffee";
+    this.price = 4.0;
+   this.size = "medium";
     }
     @Override
     public String getDescription(){
@@ -29,7 +23,7 @@ public class DripCoffee implements Drink{
     }
     @Override
 
-    public char getSize(){
+    public String getSize(){
         return size;
     }
     @Override

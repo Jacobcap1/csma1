@@ -5,14 +5,16 @@ import "./Menu.css";
 
 export default function MenuPage({ addToCart }) {
   const [menuItems, setMenuItems] = useState([]);
-
+  const[message, setMessage] = useState("");
   useEffect(() => {
     const loadMenu = async () => {
       const response = await fetch("http://localhost:8080/api/menu");
       //const menuCollection = collection(db, "menu");
+      
       const data = await response.json();
-
+      
       setMenuItems(data);
+
         //data.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
      // );
     };
@@ -23,6 +25,9 @@ export default function MenuPage({ addToCart }) {
   return (
     <div className="menu-container">
       <h1 className="menu-title">Menu</h1>
+
+       {message && <div className = "cart-message">{message}</div> }
+
 
       <div className="menu-grid">
         {menuItems.map((item) => (
@@ -37,7 +42,6 @@ export default function MenuPage({ addToCart }) {
               <h3>{item.name}</h3>
               <p className="menu-category">{item.category}</p>
               <p className="menu-price">${item.price.toFixed(2)}</p>
-
               <button
                 className="add-btn"
                 onClick={async () => {
@@ -47,6 +51,8 @@ export default function MenuPage({ addToCart }) {
                     body: JSON.stringify(item)
                   });
                   addToCart(item);
+                  setMessage(`${item.name} added to cart!`);
+                  setTimeout(() => setMessage(""), 3000);
                 }}
                 >
                 Add to Cart

@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Cart.css';
+import {useNavigate } from "react-router-dom";
 
 export default function Cart(){
 const [cartData, setCartData] = useState(null);
+const navigate = useNavigate();
 
   useEffect(() => {
     const fetchCart = async () => {
@@ -59,9 +61,11 @@ const [cartData, setCartData] = useState(null);
             <strong>Total:</strong>
             <span>${cartData.totalPrice}</span>
           </div>
-          <Link to="/checkout" className="checkout-button">
+          <button 
+          onClick={() => navigate("/checkout", {state: {cart: cartData.items}})} 
+            >
             Proceed to Checkout
-          </Link>
+          </button>
         </div>
       </div>
     </div>

@@ -69,4 +69,15 @@
   .add-btn:hover {
     background: #5a3f2c;
   }
+  .cart-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
   

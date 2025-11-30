@@ -2,13 +2,14 @@ import React, { useState } from "react";
 //import { auth } from "../config/firebase.js";
 //import {createUserWithEmailAndPassword, signInWithEmailAndPassword,} from "firebase/auth";
 import "./Login.css";
+import {useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
   const [isRegister, setIsRegister] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg("");
@@ -33,7 +34,7 @@ export default function LoginPage() {
         body: JSON.stringify({password,email}),
       });
         const text = await response.text();
-        alert(text);
+        alert(text + "Yessir");
 
     }else{
       const response = await fetch("http://localhost:8080/auth/login", {
@@ -45,6 +46,7 @@ export default function LoginPage() {
       });
         const text = await response.text();
         alert(text);
+        navigate("/Menu");
     } 
     }catch(err){
       setErrorMsg(err.message); 

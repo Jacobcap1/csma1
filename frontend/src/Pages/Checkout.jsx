@@ -1,16 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Checkout.css';
+import { useLocation } from 'react-router-dom';
 
-const Checkout = ({ cart }) => {
+const Checkout = () => {
+  const location = useLocation();
+  const cart = location.state?.cart || [];
+  const [orderMessage, setOrderMessage] = useState("");
+
   const handleCheckout = async (e) => {
     e.preventDefault();
    
       const orderData = {
         cart: cart,
-          name: e.target[0].value,
-          phone: e.target[1].value,
-          cardNumber: e.target.cardnumber.value,
-          exp: e.target.expiration.value,
+          name: e.target.name.value,
+          phone: e.target.phone.value,
+          cardNumber: e.target.cardNumber.value,
+          expDate: e.target.expiration.value,
           cvc: e.target.cvc.value
       };
     try{
@@ -19,15 +24,17 @@ const Checkout = ({ cart }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(orderData),
       });
-    
+      const text = await response.text();
+      console.log("Backend response:", text);
+
       if (response.ok) {
-        alert("Order placed!");
+        setOrderMessage("Order placed!");
       } else {
-        const text = await response.text();
-        alert("Failed to place order.");
+        
+        setOrderMessage("Failed to place order.");
       }
     }catch(err){
-      alert("Error connectng to backend "+ err.message);
+      setOrderMessage("Error connectng to backend "+ err.message);
     }
   };
       
@@ -37,6 +44,8 @@ const Checkout = ({ cart }) => {
   return (
     <div className="checkout-container">
       <h2>Checkout</h2>
+      {orderMessage && <div className="order-message">{orderMessage}</div>} {/* <-- message */}
+
       <form className="checkout-form" onSubmit={handleCheckout}>
         <input name="name" type="text" placeholder="Full Name" required />
         <input name="phone" type="text" placeholder="Phone Number" required />

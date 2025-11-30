@@ -1,5 +1,6 @@
 package com.coffeeshop.Connector;
 import com.coffeeshop.DTO.*;
+import com.coffeeshop.Database.DBMGR;
 import com. coffeeshop.Controller.OrderController;
   
 import com.coffeeshop.Classes.*;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin; 
 
 @RestController
+
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/orders")
 public class OrderRestController {
@@ -24,13 +26,14 @@ public class OrderRestController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<String> placeOrder(@RequestBody OrderDTO orderDTO) {
-        Cart c = new Cart();
-        DrinkFactory df = new DrinkFactory();
-        for (DrinkDTO drinkDTO : orderDTO.getCart()) {
-            Drink drink = df.createDrink(drinkDTO.getName(), drinkDTO.getSize());
-            c.addToCart(drink);
-        }
+    public ResponseEntity<String> placeOrder(@RequestBody OrderDTO orderDTO) throws IOException {
+        Cart c = Cart.getInstance();
+        // System.out.println("Cart gotten in OrderRestController");
+        // DrinkFactory df = new DrinkFactory();
+        // for (DrinkDTO drinkDTO : orderDTO.getCart()) {
+        //     Drink drink = df.createDrink(drinkDTO.getName());
+        //     c.addToCart(drink);
+        // }
         Order order = new Order(
             c,
             orderDTO.getName(),
@@ -39,8 +42,11 @@ public class OrderRestController {
             orderDTO.getCvc(),
             orderDTO.getExpDate() // or expiration date if you have it
         );
-        
+        System.out.println("New order created");
         String result = oc.placeOrder(order);
+        System.out.println(result);
+        DBMGR dbmgr = new DBMGR();
+        dbmgr.storeOrderInDB(order);
         return ResponseEntity.ok(result);
     }
 }

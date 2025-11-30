@@ -6,7 +6,6 @@ com\coffeeshop\DTO\DrinkDTO.class
 com\coffeeshop\Classes\Order.class
 com\coffeeshop\Classes\OrderQueue.class
 com\coffeeshop\DTO\LoginData.class
-com\coffeeshop\Classes\DripCoffee.class
 com\coffeeshop\Controller\OrderController.class
 com\coffeeshop\MyApplication.class
 com\coffeeshop\Controller\LoginController.class

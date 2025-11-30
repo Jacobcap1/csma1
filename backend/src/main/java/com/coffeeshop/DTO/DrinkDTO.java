@@ -4,11 +4,11 @@ public class DrinkDTO {
 private String name;
 private double price;
 private String description;
-private char size;
+private String size;
 
 public DrinkDTO(){};
 
-public DrinkDTO(String name, char size, double price, String description){
+public DrinkDTO(String name, String size, double price, String description){
     this.name = name;
     this.price=price;
     this.description = description;
@@ -20,7 +20,7 @@ public String getName(){
 public double getPrice(){
     return price;}
 
-public char getSize(){
+public String getSize(){
     return size;
 }
 public String getDescription(){

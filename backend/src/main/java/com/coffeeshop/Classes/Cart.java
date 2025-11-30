@@ -5,11 +5,15 @@ import java.util.List;
 
 public class Cart {
     List<Drink> cart;
+private static final Cart instance = new Cart();
 
-    public Cart()
+    private Cart()
     {
         System.out.println("New arraylist initialized in the Cart class constructor");
         cart = new ArrayList<>();
+    }
+    public static Cart getInstance() {
+        return instance;
     }
     //returns a list of drinknames that are in cart
     public List<Drink> getCart(){

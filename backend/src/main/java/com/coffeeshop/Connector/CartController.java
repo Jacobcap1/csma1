@@ -14,22 +14,16 @@ import java.util.stream.Collectors;
 import java.util.List;
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/cart ")
+@RequestMapping("/cart")
 
 public class CartController {
 
 private final OrderGUI og;
-private final Cart cart;
+private final static Cart cart = Cart.getInstance();
 
 public CartController(){
-    Cart tempCart;
+   
     OrderGUI tempOG;
-    try{
-        tempCart = new Cart();
-    } catch (Exception e){
-        e.printStackTrace();
-        tempCart = null;
-    }
     try{
         tempOG = new OrderGUI();
     } catch (Exception e){
@@ -37,7 +31,7 @@ public CartController(){
         tempOG = null;
     }
     this.og = tempOG;
-    this.cart = tempCart;
+   
 }
 @GetMapping
     public CartDTO getCart() {
@@ -55,8 +49,7 @@ public CartController(){
 
     @PostMapping("/add")
     public String addToCart(@RequestBody DrinkDTO dto) {
-      
-        return og.onAddToCart(dto.getName(), dto.getSize());
+        return og.onAddToCart(dto.getName());
     //     Drink drink = df.createDrink(dto.getName(), dto.getSize());
     //     return cart.addToCart(drink);
     // }

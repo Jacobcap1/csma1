@@ -8,7 +8,7 @@ public class LoginData {
 
     LoginData(String password, String email){
         this.email = email;
-        this.password = email;
+        this.password = password;
 
     }
     public String getEmail(){

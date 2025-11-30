@@ -6,12 +6,6 @@ import com.google.api.core.ApiFuture;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.Query;
-import com.google.cloud.firestore.QuerySnapshot;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -68,11 +62,16 @@ public boolean emailExists(String email) throws Exception {
            orderData.put("Credit Card Number", o.getCCNumber());
            orderData.put("CVC", o.getCVC());
            orderData.put("Expiration", o.getExpDate());
+           
+           
+   
+
       
+           System.out.println("Stuff added to db");
             try{
                 ApiFuture<DocumentReference> future = db.collection("OrderHistory").add(orderData);
                 DocumentReference docRef = future.get();
-               // System.out.println("Doc written with id:"+ docRef.getId());
+               System.out.println("Doc written with id:"+ docRef.getId());
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -90,9 +89,9 @@ public boolean emailExists(String email) throws Exception {
         Map<String, Object> userData = new HashMap<>();
         // userData.put("FirstName",fName);
         // userData.put("LastName",lName);
-        String password2 = "Hello fart face";
+       
         userData.put("Email", email);
-        userData.put("Password", password2);
+        userData.put("Password", password);
         userData.put("DateJoined", getFirestoreTimestamp()); // Add a timestamp
         userData.put("CustomerID", java.util.UUID.randomUUID().toString());
         userData.put("Points", 0);
