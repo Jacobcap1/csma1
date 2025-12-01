@@ -16,25 +16,23 @@ export default function Navbar({ user }) {
     <nav className="sb-navbar">
       {/* LEFT SECTION */}
       <div className="sb-left">
+       <Link to="/">
         <img
           src="/logo.png" 
           alt="Logo"
           className="sb-logo"
         />
+       </Link>
 
         <div className="sb-links">
           <Link to="/menu">MENU</Link>
           <Link to="/rewards">REWARDS</Link>
+          <Link to="/cart">CART</Link>
         </div>
       </div>
 
       {/* RIGHT SECTION */}
       <div className="sb-right">
-        <div className="cart-button">
-          <span className="cart-icon">🛒</span>
-          <Link to="/cart">Cart</Link>
-        </div>
-
         {user ? (
           <>
             <button className="sb-signin" onClick={handleLogout}>
@@ -44,10 +42,10 @@ export default function Navbar({ user }) {
         ) : (
           <>
             <Link to="/login">
-              <button className="sb-signin">Sign in</button>
+              <button className="sb-signin">Login</button>
             </Link>
             <Link to="/register">
-              <button className="sb-join">Join now</button>
+              <button className="sb-join">Register</button>
             </Link>
           </>
         )}

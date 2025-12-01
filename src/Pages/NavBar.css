@@ -22,7 +22,7 @@
   width: 55px;
 }
 
-/* LINKS (MENU, REWARDS, GIFT CARDS) */
+/* LINKS (MENU, REWARDS) */
 .sb-links {
   display: flex;
   gap: 28px;
@@ -45,23 +45,6 @@
   display: flex;
   align-items: center;
   gap: 25px;
-}
-
-/* FIND A STORE */
-.find-store {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.find-store a {
-  text-decoration: none;
-  color: black;
-  font-weight: 600;
-}
-
-.find-store a:hover {
-  color: #00754a;
 }
 
 /* BUTTON STYLES */
@@ -92,9 +75,4 @@
 
 .sb-join:hover {
   opacity: 0.9;
-}
-
-/* LOCATION PIN */
-.pin {
-  font-size: 16px;
 }

@@ -6,6 +6,7 @@ import Cart from './Pages/Cart';
 import Checkout from './Pages/Checkout';
 //import Customize from './Pages/Customize';
 import Login from './Pages/Login';
+import Register from './Pages/Register'; // Import Register component
 //import Rewards from './Pages/Rewards';
 // import AdminDashboard from './Pages/admin/AdminDashboard';
 // import MenuManager from './Pages/admin/MenuManager';
@@ -27,11 +28,12 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           {/* <Route path="/customize" element={<Customize />} /> */}
           <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} /> {/* Add Register route */}
          {/*<Route path="/rewards" element={<Rewards />} />
           {/* <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/menu" element={<MenuManager />} />
           <Route path="/admin/orders" element={<OrderQueue />} />
-          <Route path="/admin/rewards" element={<RewardsManager />} /> */}
+          <CFO<route path="/admin/rewards" element={<RewardsManager />} /> */}
         </Routes>
       </div>
     </Router>

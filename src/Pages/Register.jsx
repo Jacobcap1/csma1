@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link
-import "./Login.css";
+import { Link } from "react-router-dom";
+import "./Register.css";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
@@ -12,7 +12,7 @@ export default function LoginPage() {
     setErrorMsg("");
 
     try {
-      const response = await fetch("http://localhost:3000/login", {
+      const response = await fetch("http://localhost:3000/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export default function LoginPage() {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2>Login</h2>
+        <h2>Create Account</h2>
 
         {errorMsg && <p className="error">{errorMsg}</p>}
 
@@ -53,14 +53,15 @@ export default function LoginPage() {
           />
 
           <button className="login-button" type="submit">
-            Login
+            Register
           </button>
         </form>
 
         <p className="switch-text">
-          Don't have an account?
-          <Link to="/register" className="switch-link">
-             Register
+          Already have an account?
+          <Link to="/login" className="switch-link">
+            {" "}
+            Login
           </Link>
         </p>
       </div>
