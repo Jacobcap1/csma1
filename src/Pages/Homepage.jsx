@@ -5,7 +5,7 @@ import "../App.css";
 export default function Homepage({ onStartOrder }) {
   return (
     <div className="landing-container">
-      <h1 className="title">Welcome to BrewTime Coffee</h1>
+      <h1 className="title">Welcome to JavaJuice</h1>
       <p className="subtitle">Order ahead. Skip the line.</p>
 
       <button 
