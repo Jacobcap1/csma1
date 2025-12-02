@@ -7,7 +7,7 @@ public class LargeDripCoffee implements Drink{
     public static double price;
     public static String size;
 
-    public static points = 30;
+    public static int points = 30;
 
 
     public LargeDripCoffee(){

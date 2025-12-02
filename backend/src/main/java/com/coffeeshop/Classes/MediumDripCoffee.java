@@ -7,7 +7,7 @@ public class MediumDripCoffee implements Drink{
     public static double price;
     public static String size;
 
-    public static points = 20;
+    public static int points = 20;
 
     public MediumDripCoffee(){
    this.description = "Plain ol' Black Coffee";
