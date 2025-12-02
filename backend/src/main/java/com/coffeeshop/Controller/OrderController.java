@@ -38,7 +38,7 @@ public class OrderController {
          dbmgr.storeOrderInDB(o);
 
          //combined points from the order will be place into the account here
-        dbmgr.storePointsInDB(o);
+         dbmgr.storePointsInDB(o);
 
         return (o.addToQueue(o));
     }

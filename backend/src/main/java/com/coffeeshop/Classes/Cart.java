@@ -32,6 +32,15 @@ private static final Cart instance = new Cart();
         return total;
     }
 
+    public int getCartPoints() {
+        int totalPoints =0;
+        for (Drink drink : cart) {
+            totalPoints = totalPoints +drink.getPoints();
+        }
+        return totalPoints;
+    }
+
+
     public String addToCart(Drink d){
        // System.out.println("Drink added to cart arraylist in the cart class");
         cart.add(d);

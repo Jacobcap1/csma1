@@ -10,7 +10,7 @@ public class Latte implements Drink{
     public static double price;
     public static String size;
 
-    public static points = 40;
+    public static int points = 40;
 
     public Latte(char size){
         this.description = "Nice and Frothy";

@@ -36,7 +36,12 @@ public class Order {
     public String getCVC(){return cvc;}
     public String getExpDate(){return expDate;}
 
-    
+
+
+    public int getPoints() {
+        return c.getCartPoints();
+    }
+
 
     //When this method is called it will create an instance of the OrderQueue class (singleton)
     //it will add the order Object to the queue

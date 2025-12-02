@@ -10,4 +10,5 @@ public interface Drink {
   String getDescription();
   double getPrice();
   String getSize();
+  int getPoints();
 }
