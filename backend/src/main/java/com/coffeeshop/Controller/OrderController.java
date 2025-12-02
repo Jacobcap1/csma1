@@ -36,6 +36,10 @@ public class OrderController {
         this.o = o;
        // System.out.println("Order object (which contains a Drink object) sent to addToQueue method from OrderController class");
          dbmgr.storeOrderInDB(o);
+
+         //combined points from the order will be place into the account here
+        dbmgr.storePointsInDB(o);
+
         return (o.addToQueue(o));
     }
     public String orderHasBeenServed(){

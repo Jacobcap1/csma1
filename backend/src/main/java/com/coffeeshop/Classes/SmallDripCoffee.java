@@ -7,6 +7,8 @@ public class SmallDripCoffee implements Drink{
     public static double price;
     public static String size;
 
+    public static points = 10;
+
     public SmallDripCoffee(){
    this.description = "Plain ol' Black Coffee";
    this.name = "Small Drip Coffee";
@@ -30,6 +32,10 @@ public class SmallDripCoffee implements Drink{
 
     public double getPrice() {
         return price;
+    }
+
+    public int getPoints(){
+        return points;
     }
 
     public void updatePrice(Admin a, double newPrice){

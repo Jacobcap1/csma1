@@ -42,6 +42,7 @@ public boolean emailExists(String email) throws Exception {
 
 }
     }
+
     public String getFirestoreTimestamp() {
         ZonedDateTime now = ZonedDateTime.now();
         return now.format(DateTimeFormatter.ISO_INSTANT);
@@ -107,6 +108,24 @@ public boolean emailExists(String email) throws Exception {
             return"success";
 
         }
+    }
+
+// This needs to be double checked before completion of the project
+    public String storePointsInDB (Order points){
+        Map<String,Object> orderData = new HashMap<>();
+        orderData.put("Points",points.getPoints());
+
+        try {
+            ApiFuture<DocumentReference> future = db.collection("Customer").add(orderData);
+            DocumentReference docRef = future.get();
+            System.out.println("Doc written with id:"+ docRef.getId());
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Oh Naur");
+            return "Error writing Points to Database" + e.getMessage();
+        }
+        return "Points stored in memory";
     }
 
     public String verifyUser(String email, String password) throws Exception {
